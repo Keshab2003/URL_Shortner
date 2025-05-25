@@ -1,0 +1,10 @@
+.mainfile{
+     height: 70vh;
+      width: 70vw;
+      margin: auto;
+      margin-top: 5vh;
+      padding: 2rem;
+      border-radius: 10px;
+      background-color: #f8f9fa;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}

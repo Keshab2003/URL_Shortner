@@ -13,8 +13,8 @@ const  handleLink = async (req, res) =>{
         redirect : body.url,
         visitHistory:[]
     })
-
-    return res.json({id:shortId});
+    return res.render('home', {urls:[] , id:shortId});
+    // return res.json({id:shortId});
 }
 
  

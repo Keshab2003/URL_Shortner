@@ -7,10 +7,18 @@ const handleLink = require('./controller/handleLink');
 const URL = require('./model/url');
 const urlRoutes = require('./routes/url.routes');
 const handleShortUrl = require('./controller/handleShortUrl')
+// const home = require('./views/home.ejs');
+
+app.set("view engine",'ejs');
+app.use(express.urlencoded({extended:false}));
 
 connectDB();
 app.use(express.json());
 
+app.get('/home',async (req,res) => {
+    const urls = await URL.find();
+    res.render('home' , {urls:urls});
+})
 app.use('/url' , urlRoutes);
 
 
