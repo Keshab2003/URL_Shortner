@@ -1,7 +1,4 @@
 const express = require('express');
-// import { async } from './../node_modules/mongodb/src/client-side-encryption/providers/aws';
-// import { create } from './../node_modules/@types/whatwg-url/lib/URLSearchParams.d';
-// import shortid from 'shortid';
 const shortid = require('shortid');
 const URL = require('../model/url');
 

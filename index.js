@@ -5,30 +5,16 @@ const app = express();
 const connectDB = require('./config/connect');
 const handleLink = require('./controller/handleLink');
 const URL = require('./model/url');
+const urlRoutes = require('./routes/url.routes');
+const handleShortUrl = require('./controller/handleShortUrl')
 
 connectDB();
 app.use(express.json());
 
-app.get('/url', (req, res) =>{
-    console.log(`hello gandu`)
-});
-
-app.post('/url' , handleLink);
+app.use('/url' , urlRoutes);
 
 
-app.get('/:shortid' , async (req,res) =>{
-    const shortid = req.params.shortid;
-    const entry = await URL.findOneAndUpdate({shortUrl:shortid},
-        {$push:{visitHistory:{timestamp:Date.now()}}},
-        {new:true}
-    );
-
-    if (!entry) {
-        return res.status(404).send('Short URL not found');
-    }
-
-    res.redirect(entry.redirect);
-})
+app.use('/url' , urlRoutes);
 
 
 
